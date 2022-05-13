@@ -1,7 +1,7 @@
 /*!
 Theme Name: Feiern? Safe
 Author: Defrost Studio
-Version: 2022.05.10
+Version: 2022.05.12
 Tested up to: 5.4
 Requires PHP: 5.6
 License: GNU General Public License v2 or later
@@ -54,6 +54,7 @@ Text Domain: awareness-akademie
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 html {
+	background-color: #ededed;
 	line-height: 1.15;
 	-webkit-text-size-adjust: 100%;
 	-webkit-font-smoothing: antialiased;
@@ -67,7 +68,14 @@ html {
 /**
  * Remove the margin in all browsers.
  */
+
+@font-face {
+font-family: 'founders-grotesk';
+src: url(assets/fonts/FoundersGrotesk-Regular.woff2);
+}
+
 body {
+	font-family: 'founders-grotesk' !important;
 	margin: 0;
 	width: 100vw;
 }
@@ -145,6 +153,7 @@ body {
  * Render the `main` element consistently in IE.
  */
 main {
+	background-color: #ededed;
 	display: block;
 	margin-top: 160px;
 	min-height: calc(100vh - 235px);
@@ -1162,11 +1171,11 @@ textarea {
 }
 
 header {
+	background-color: #ededed;
 	position: fixed;
 	top: 0;
 	left: 0;
 	height: 110px;
-	background-color: #ffffff;
 
 	display: grid;
 	grid-template-columns: 30% 70%;
@@ -1205,14 +1214,15 @@ footer .site-info {
 }
 
 footer .logo-footer {
-	width: 80px;
+	/* width: 80px; */
 	display: grid;
+	justify-content: flex-start;
 	place-items: center;
 }
 
 footer .logo-footer img {
-	width: 100px;
-	filter: invert(1);
+	width: 250px;
+	/* filter: invert(1); */
 }
 
 footer a {
@@ -1554,7 +1564,7 @@ section.swiper {
 }
 
 .dimensionen .definition {
-    display: none;
+    display: block;
 }
 
 .overlay {
@@ -1756,7 +1766,7 @@ section.swiper {
 
 .hero {
 	width: 100vw;
-	height: 50vh;
+	height: 67vh;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
