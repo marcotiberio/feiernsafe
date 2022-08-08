@@ -31,7 +31,7 @@
 
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
-			<?php
+			<!-- <?php
 			the_custom_logo();
 			if ( is_front_page() && is_home() ) :
 				?>
@@ -45,9 +45,9 @@
 			$awareness_akademie_description = get_bloginfo( 'description', 'display' );
 			if ( $awareness_akademie_description || is_customize_preview() ) :
 				?>
-				<p class="site-description"><?php echo $awareness_akademie_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+				<p class="site-description"><?php echo $awareness_akademie_description; ?></p>
+			<?php endif; ?> -->
+		</div>
 
 		<nav id="site-navigation" class="main-navigation">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'awareness-akademie' ); ?></button>

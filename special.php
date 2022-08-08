@@ -20,19 +20,19 @@ get_header();
 		<?php if( have_rows('flexible') ): ?>
 			<?php while( have_rows('flexible') ): the_row(); ?>
 				<?php if( get_row_layout() == 'title' ): ?>
-					<section class="col-2" id="<?php the_sub_field('section_id'); ?>">
+					<section class="col-2" id="<?php the_sub_field('section_id'); ?>" style="background-color: <?php the_sub_field('background_color'); ?>;">
 						<div class="left"><small><?php the_sub_field('left'); ?></small></div>
 						<div class="right"><h1><?php the_sub_field('right'); ?></h1></div>
 					</section>
 				<?php endif; ?>
 				<?php if( get_row_layout() == 'paragraph' ): ?>
-					<section class="col-2" id="<?php the_sub_field('section_id'); ?>">
+					<section class="col-2" id="<?php the_sub_field('section_id'); ?>" style="background-color: <?php the_sub_field('background_color'); ?>;">
 						<div class="left"><small><?php the_sub_field('left'); ?></small></div>
 						<div class="right"><?php the_sub_field('right'); ?></div>
 					</section>
 				<?php endif; ?>
 				<?php if( get_row_layout() == 'intro' ): ?>
-					<section class="intro row-2" id="<?php the_sub_field('section_id'); ?>">
+					<section class="intro row-2" id="<?php the_sub_field('section_id'); ?>" style="background-color: <?php the_sub_field('background_color'); ?>;">
 						<div class="big"><h3><?php the_sub_field('big'); ?></h3></div>
 						<div class="small"><?php the_sub_field('small'); ?></div>
 					</section>
@@ -108,7 +108,7 @@ get_header();
 					</section>
 				<?php endif; ?>
 				<?php if( get_row_layout() == 'dimensionen' ): ?>
-					<div class="dimensionen" id="<?php the_sub_field('section_id'); ?>">
+					<div class="dimensionen" id="<?php the_sub_field('section_id'); ?>" style="background-color: <?php the_sub_field('background_color'); ?>;">
 					<?php if( have_rows('dimensionen_repeater') ): ?>
 						<?php while( have_rows('dimensionen_repeater') ): the_row(); 
 							$term = get_sub_field('term');
@@ -187,7 +187,7 @@ get_header();
 					</section>
 				<?php endif; ?>
 				<?php if( get_row_layout() == 'contact-form' ): ?>
-					<section class="contact-form" id="<?php the_sub_field('section_id'); ?>">
+					<section class="contact-form" id="<?php the_sub_field('section_id'); ?>" style="background-color: <?php the_sub_field('background_color'); ?>;">
 						<?php the_sub_field('shortcode_text'); ?>
 					</section>
 				<?php endif; ?>
@@ -195,7 +195,7 @@ get_header();
 					<section class="hero" id="<?php the_sub_field('section_id'); ?>" style="background-image: url('<?php the_sub_field('image'); ?>');"></section>
 				<?php endif; ?>
 				<?php if( get_row_layout() == 'downloads' ): ?>
-				<section class="downloads" id="<?php the_sub_field('section_id'); ?>">
+				<section class="downloads" id="<?php the_sub_field('section_id'); ?>" style="background-color: <?php the_sub_field('background_color'); ?>;">
 					<div class="repeater">
 						<?php if( have_rows('repeater') ): ?>
 							<?php while( have_rows('repeater') ): the_row();
