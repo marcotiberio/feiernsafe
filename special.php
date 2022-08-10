@@ -192,7 +192,9 @@ get_header();
 					</section>
 				<?php endif; ?>
 				<?php if( get_row_layout() == 'hero_image' ): ?>
-					<section class="hero" id="<?php the_sub_field('section_id'); ?>" style="background-image: url('<?php the_sub_field('image'); ?>');"></section>
+					<section class="hero-wrapper <?php the_sub_field('width'); ?>">
+						<div class="hero" id="<?php the_sub_field('section_id'); ?>" style="background-image: url('<?php the_sub_field('image'); ?>');"></div>
+					</section>
 				<?php endif; ?>
 				<?php if( get_row_layout() == 'downloads' ): ?>
 				<section class="downloads" id="<?php the_sub_field('section_id'); ?>" style="background-color: <?php the_sub_field('background_color'); ?>;">
@@ -252,6 +254,22 @@ get_header();
 						</div>
 					</section>
 				<?php endif; ?>
+				<?php if( get_row_layout() == 'map_repeater' ): ?>
+					<?php if( have_rows('map_markers') ): ?>
+						<div class="acf-map">
+							<?php while ( have_rows('map_markers') ) : the_row(); ?>
+							<?php $location = get_sub_field('marker'); ?>
+								<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>" data-icon="<?php the_sub_field('custom_icon'); ?>">
+									<h3 class="title"><?php the_sub_field('title'); ?></h3>
+									<p class="address"><?php echo $location['address']; ?></p>
+									<p class="description"><?php the_sub_field('description'); ?></p>
+								</div>
+							<?php endwhile; ?>
+						</div>
+					<?php endif; ?>
+				<?php endif; ?>
+
+
 			<?php endwhile; ?>
 		<?php endif; ?>
 	</main><!-- #main -->

@@ -1,7 +1,7 @@
 /*!
 Theme Name: Feiern? Safe
 Author: Defrost Studio
-Version: 2022.08.08
+Version: 2022.08.10
 Tested up to: 5.4
 Requires PHP: 5.6
 License: GNU General Public License v2 or later
@@ -76,6 +76,7 @@ src: url(assets/fonts/FoundersGrotesk-Regular.woff2);
 
 body {
 	font-family: 'founders-grotesk' !important;
+	overflow-wrap: break-word;
 	margin: 0;
 	width: 100vw;
 }
@@ -487,6 +488,12 @@ textarea {
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 20px;
 	line-height: 26px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	hyphens: auto;
+	-webkit-hyphens: auto;
+	-ms-hyphens: auto;
+	-moz-hyphens: auto;
 }
 
 h1,
@@ -497,7 +504,6 @@ h5,
 h6 {
 	margin-block-start: 0;
 	clear: both;
-	word-break: break-all;
 }
 
 h1 {
@@ -740,6 +746,7 @@ textarea {
 	border-radius: 0;
 	outline: 0;
 	padding: 5px;
+	width: 100%;
 }
 
 input[type="text"]:focus,
@@ -831,7 +838,7 @@ textarea {
 }
 
 .current-menu-item {
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 .main-navigation a,
@@ -1774,8 +1781,27 @@ section.swiper {
 # Hero
 --------------------------------------------------------------*/
 
-.hero {
+.hero-wrapper {
+	display: grid;
+	padding: 20px 3vw;
 	width: 100vw;
+}
+
+.hero-wrapper.full {
+	grid-template-columns: 1fr;
+}
+
+.hero-wrapper.center {
+	grid-template-columns: 1fr 3fr 1fr;
+}
+
+.hero-wrapper.center .hero {
+	grid-column-start: 2;
+	grid-column-end: 3;
+}
+
+.hero {
+	width: 100%;
 	height: 67vh;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -2387,8 +2413,7 @@ section.swiper {
 }
 
 
-/* Base for label styling */
-[type="checkbox"]:not(:checked),
+/* [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked {
 	position: absolute;
 	left: 0;
@@ -2403,7 +2428,6 @@ section.swiper {
 	cursor: pointer;
 }
 
-/* checkbox aspect */
 [type="checkbox"]:not(:checked)+label:before,
 [type="checkbox"]:checked+label:before {
 	content: '';
@@ -2419,7 +2443,6 @@ section.swiper {
 	transition: all .275s;
 }
 
-/* checked mark aspect */
 [type="checkbox"]:not(:checked)+label:after,
 [type="checkbox"]:checked+label:after {
 	content: '✕';
@@ -2434,7 +2457,6 @@ section.swiper {
 	transition: all .2s;
 }
 
-/* checked mark aspect changes */
 [type="checkbox"]:not(:checked)+label:after {
 	opacity: 0;
 	-webkit-transform: scale(0) rotate(45deg);
@@ -2447,7 +2469,6 @@ section.swiper {
 	transform: scale(1) rotate(0);
 }
 
-/* Disabled checkbox */
 [type="checkbox"]:disabled:not(:checked)+label:before,
 [type="checkbox"]:disabled:checked+label:before {
 	box-shadow: none;
@@ -2461,27 +2482,68 @@ section.swiper {
 
 [type="checkbox"]:disabled+label {
 	color: #aaa;
-}
-
-/* Accessibility */
-[type="checkbox"]:checked:focus+label:before,
-[type="checkbox"]:not(:checked):focus+label:before {
-	box-shadow: inset 0 1px 3px rgba(0, 0, 0, .1), 0 0 0 6px rgba(203, 34, 237, .2);
-}
-
-/* .page-template-ressourcen .entry-header .filters input {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 140px;
-	height: 100px;
-	opacity: 0;
-	cursor: pointer;
-}
-
-input[type=checkbox]:checked ~ label {
-	text-decoration: underline;
 } */
+
+/* Form */
+
+.listcheckbox-container .nf-field-element label:before {
+	top: -3px !important;
+}
+
+.listcheckbox-container .nf-field-element label:after {
+    top: -3px !important;
+    bottom: auto;
+}
+
+.nf-form-content input:not([type=button]) {
+	background: transparent !important;
+    border-bottom: 1px solid #000 !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-top: 0 !important;
+    border-radius: 0;
+    box-shadow: none;
+    color: #000 !important;
+    transition: all .2s !important;
+}
+
+.nf-form-content input[type=text],
+.nf-form-content input[type=email] {
+	height: 30px !important;
+	padding: 0 !important;
+}
+
+.nf-form-content input[type=button] {
+	background: #000 !important;
+    border: 1px solid #000 !important;
+    color: #fff !important;
+    transition: all .2s !important;
+}
+
+.nf-form-content input[type=button]:hover {
+	background: transparent !important;
+    border: 1px solid #000 !important;
+    color: #000 !important;
+    transition: all .2s !important;
+}
+
+.nf-error.field-wrap .nf-field-element:after {
+	border-left: 1px solid #000;
+	border-right: 1px solid #000;
+	border-top: 1px solid #000;
+}
+
+.list-checkbox-wrap .nf-field-element ul {
+	display: flex !important;
+	flex-flow: row wrap !important;
+}
+
+.listcheckbox-container .nf-field-element label {
+    margin-left: 30px!important;
+    margin-right: 20px !important;
+}
+
+/* Form */
 
 .page-template-ressourcen .title,
 .page-template-ressourcen-grid .title {
@@ -2985,10 +3047,41 @@ summary:hover {
 	padding: 20px 3vw;
 }
 
-.contact-form .wpcf7 {
+.contact-form .nf-form-cont {
 	grid-column-start: 2;
 	grid-column-end: 3;
 }
+
+.nf-form-content {
+	max-width: 100% !important;
+	padding: 0 !important;
+}
+
+.acf-map {
+	width: 100%;
+	height: calc(100vh - 115px);
+	border: 0;
+	margin: 20px 0;
+}
+
+.acf-map .title {
+	border-bottom: 1px solid #000;
+	margin-bottom: 20px;
+	margin-top: 10px;
+	padding-bottom: 20px;
+}
+
+.gm-ui-hover-effect {
+	top: 25px !important;
+    right: 10px !important;
+	transform: scale(2);
+}
+
+.gm-style .gm-style-iw-c {
+	min-width: 200px !important;
+}
+
+
 
 
 
@@ -3434,7 +3527,7 @@ summary:hover {
 	--------------------------------------------------------------*/
 
 	.hero {
-		width: 100vw;
+		width: 100%;
 		height: 26vh;
 		background-position: center;
 		background-repeat: no-repeat;
@@ -4723,11 +4816,16 @@ summary:hover {
 	--------------------------------------------------------------*/
 
 	.hero {
-		width: 100vw;
+		width: 100%;
 		height: 17vh;
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: cover;
+	}
+
+	.hero-wrapper.center .hero {
+		grid-column-start: 1;
+		grid-column-end: 4;
 	}
 
 	.page-navigation ul {
@@ -4770,6 +4868,37 @@ summary:hover {
 		padding: 20px;
 		background-color: #f4cf46;
 		text-align: center;
+	}
+
+	.col-3.blocksandlogos .logo {
+		border-right: 0;
+		margin: 0 auto;
+		transform: translateY(-50px);
+		height: 150px;
+	}
+
+	.contact-form {
+		display: grid;
+		grid-template-columns: 1fr;
+		padding: 20px 3vw;
+	}
+	
+	.contact-form .nf-form-cont {
+		grid-column-start: 1;
+		grid-column-end: 2;
+	}
+	
+	.nf-form-content {
+		max-width: 100% !important;
+		padding: 0 !important;
+	}
+
+	.listcheckbox-container .nf-field-element label:before {
+		top: 3px !important;
+	}
+	
+	.listcheckbox-container .nf-field-element label:after {
+		top: 3px !important;
 	}
 
 }
